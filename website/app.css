@@ -12,14 +12,8 @@ body {
     position: relative;
     display: grid;
     grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    /* width: 100vw; */
-    /* background: #f23557; */
     justify-content: center;
     grid-gap: 1em;
-    /* font-size: 20px; */
-    /* font-family: 'Oswald', sans-serif; */
-    /* background-image: url("https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"); */
 
 }
 
@@ -41,21 +35,12 @@ label {
     margin: 1rem 0;
 }
 
-.holder {}
-
 
 #entryHolder {
     padding: 0 3rem;
 }
 
-#date {}
 
-#temp {}
-
-#content {}
-
-
-.title {}
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 
@@ -80,8 +65,6 @@ button {
     height: 14rem;
     background: none;
     border: none;
-    /* border-radius: 30%; */
-    /* box-shadow: 2px 4px 5px #444; */
     transition-duration: 1s;
 }
 
@@ -102,7 +85,6 @@ button:hover {
     margin: 0;
     position: absolute;
     top: 50%;
-    /* left: 25%; */
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -165,8 +147,6 @@ button:focus {
     width: 14rem;
     margin: 0;
     position: absolute;
-    /* top: 50%; */
-    /* left: 25%; */
 
 }
 
@@ -177,9 +157,7 @@ button:focus {
     width: 14rem;
     position: relative;
     left: 80%;
-    /* right: -50%;
-    bottom: -15%;
-    position: relative; */
+
 }
 
 .title {

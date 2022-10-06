@@ -8,8 +8,8 @@ const temp = document.getElementById('temp');
 const content = document.getElementById('content');
 const baseURI = "https://api.openweathermap.org/data/2.5/weather?zip=";
 const requestForm = "https://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}";
-const city = document.getElementById('city'); //
-const weather = document.getElementById('weather'); //
+const city = document.getElementById('city');
+const weather = document.getElementById('weather');
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -124,21 +124,3 @@ function serverActionStep(event) {
 
         });
 }
-
-// generate.addEventListener("click", (event) => {
-//     event.preventDefault();
-//     const madeURL = `${baseURI}${zip.value},${key}`;
-//     getData(madeURL)
-//         .then((data) => {
-//             projectData(data)
-//                 .then((info) => {
-//                     postData("/add", info)
-//                         .then((data) => {
-//                             searchAndUpdateData("/result")
-
-//                         });
-//                 });
-
-//         });
-// })
-

@@ -21,14 +21,6 @@ app.use(cors());
 app.use(express.static('website'));
 
 
-// Setup Server
-
-// app.post('/add', async (req, res) => {
-//     const info = await req.body;
-//     projectData = info;
-//     res.send(projectData);
-// });
-
 
 app.post('/add', addData);
 
