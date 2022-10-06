@@ -13,7 +13,7 @@ const weather = document.getElementById('weather');
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear(); //=toDateString()
+let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear(); //=toDateString()
 
 const requestData = async (currenturl) => {
     try {
