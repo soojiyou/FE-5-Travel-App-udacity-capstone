@@ -1,0 +1,102 @@
+const fetch = require('node-fetch');
+
+
+// async function weatherbit(latitude, longitude, date, apikey) {
+//     let url = 'https://api.weatherbit.io/v2.0/history/hourly?';
+//     let lastYearDate = date.split('-');
+//     lastYearDate[0] = (parseInt(lastYearDate[0]) - 1).toString();
+//     lastYearDate = lastYearDate.join('-');
+//     url = `${url}key=${apikey}&lat=${latitude}&lon=${longitude}&start_date=${lastYearDate}:12&end_date=${lastYearDate}:13`;
+
+//     let response = await fetch(url);
+//     console.log('Weatherbit API:', response.status, response.ok);
+
+//     if (response.ok) {
+//         let data = await response.json();
+//         // console.log(data);
+//         return {
+//             temperature: data.data[0].temp,
+//             weather_icon: 'https://www.weatherbit.io/static/img/icons/' + data.data[0].weather.icon + '.png',
+//             weather_description: data.data[0].weather.description
+//         };
+//     } else {
+//         console.log(`ERROR: code ${response.status} ${response.statusText}.`);
+//     }
+// };
+
+
+async function weatherbit(latitude, longitude, date, key) {
+    const baseUrl = 'https://api.weatherbit.io/v2.0';
+    const d = new Date().getTime();
+    const today = d.toString();
+    const datesplit = date.split('-');
+    // let historicalstartDate = [`${datesplit[0] - 1}`, datesplit[1], `${datesplit[2] - 1}`];
+    // let historicalstartDateinput = historicalstartDate.join('-');
+    let historicalDate = [`${datesplit[0] - 1}`, datesplit[1], `${datesplit[2]}`];
+    let historicalDateinput = historicalDate.join('-');
+    const departureDate = new Date(`${date}`).getTime();
+    const interval = departureDate - d;
+    const days = Math.floor(interval / (24 * 60 * 60 * 1000));
+    //console.log(d, today, departureDate, date, days, historicalDate, historicalDateinput);
+    //  If trip is today
+    if (0 <= days < 1) {
+        const response = await fetch(`${baseUrl}/current?lat=${latitude}&lon=${longitude}&key=${key}`);
+        const result = await response.json();
+        console.log('Weatherbit API for current:', response.status, response.ok);
+        try {
+            return {
+                temperature: result.data[0].temp,
+                weather_icon: 'https://www.weatherbit.io/static/img/icons/' + result.data[0].weather.icon + '.png',
+                weather_description: result.data[0].weather.description
+            };
+        } catch (error) {
+            return error;
+        }
+        //  If trip is within 16 days
+    } else if (days >= 1 && days < 16) {
+        const response = await fetch(`${baseUrl}/forecast/daily?lat=${latitude}&lon=${longitude}&key=${key}`);
+        const result = await response.json();
+        console.log('Weatherbit API for forcast:', response.status, response.ok);
+        try {
+            return {
+                temperature: result.data[days - 1].temp,
+                weather_icon: 'https://www.weatherbit.io/static/img/icons/' + result.data[days - 1].weather.icon + '.png',
+                weather_description: result.data[days - 1].weather.description
+            };
+        } catch (error) {
+            return error;
+        }
+    } else if (days >= 16) {
+        console.log("Weatherbit API for history for refering: unable to define weather since the departure date is later than 16 days");
+        try {
+
+            return {
+                temperature: "unable data",
+                weather_icon: "unable data",
+                weather_description: "unable data"
+            };
+        } catch (error) {
+            return error;
+        }
+    }
+
+    //no access for historical weather api
+    //     const searchurl = `${baseUrl}/history/daily?lat=${latitude}&lon=${longitude}&start_date=${historicalDateinput}:13&end_date=${historicalDateinput}:14& key=${key} `;
+    //     const response = await fetch(searchurl);
+    //     const result = await response.json();
+    //     console.log('Weatherbit API for history for refering:', response.status, response.ok);
+    //     console.log("unable to define weather since the departure date is later than 16 days", searchurl)
+    //     console.log(result);
+    //     try {
+    //         return result.data.temp;
+    //     } catch (error) {
+    //         return error;
+
+    //     }
+    // }
+
+};
+
+module.exports = { weatherbit };
+
+
