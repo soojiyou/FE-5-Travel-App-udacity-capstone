@@ -8,7 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@700&family=Ibarra+Real+Nova:wght@700&family=Nunito:wght@200;300;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="app.css">
+    <!-- <link rel="stylesheet" href="/styles/app.scss"> -->
 </head>
 
 <body>
@@ -16,10 +16,28 @@
         <div class="holder headline">
             Weather Journal App
         </div>
+
+        <section class="content">
+            <form class="form content" method="post" action="/api/coordination" target="_blank">
+                <input type="text" name="departure" id="departure" class="dark" placeholder="departure">
+                <input type="text" name="destination" id="destination" class="dark" placeholder="destination" required>
+                <input type="date" name="date" id="date" class="dark">
+                <input type="submit" id="submit" class="dark" class="button dark" value="Submit">
+            </form>
+        </section>
+
+        <!-- <section class="content">
+            <form class="form content" method="post" action="/add" target="_blank">
+                <input type="text" name="destination" id="destination" class="dark" placeholder="destination" required>
+                <input type="date" name="date" id="date" class="dark">
+                <input type="submit" id="submit" class="dark" class="button dark" value="Submit">
+            </form>
+        </section> -->
+
         <div class=userInputBox>
             <div class="holder zip">
-                <label for="zip">Enter Zipcode here</label>
-                <input type="text" id="zip" placeholder="enter zip code here">
+                <label for="destination">Enter destination here</label>
+                <input type="text" id="destination" placeholder="enter zip code here">
             </div>
             <div class="holder feel">
                 <label for="feelings">How are you feeling today?</label>
@@ -40,11 +58,11 @@
             <div class="title">Most Recent Entry</div>
             <div class="holder box">
                 <div id="entryHolder">
-                    <h2 class="city" id="city"> </h2>
-                    <div id="date"></div>
-                    <div id="temp"></div>
-                    <div id="content"></div>
-                    <div id="weather"></div>
+                    <!-- <h2 class="city" id="city"> </h2> -->
+                    <div id="latitude"></div>
+                    <div id="longitude"></div>
+                    <div id="country"></div>
+                    <!-- <div id="weather"></div> -->
                 </div>
                 <div id="picholder">
                     <div id="weatherpic"></div>
@@ -52,7 +70,7 @@
             </div>
         </div>
     </div>
-    <script src="app.js" type="text/javascript"></script>
+    <!-- <script src="/js/app.js" type="text/javascript"></script> -->
 
 
 </body>
