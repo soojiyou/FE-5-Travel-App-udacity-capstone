@@ -1,0 +1,71 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+/* Style for Placeholder Text*/
+::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: #fffff8;
+    font-family: 'Ibarra Real Nova', serif;
+
+}
+
+
+.entry {
+    background: rgba(59, 74, 107, .4);
+    //margin: 1rem 0;
+    padding: 2rem;
+    display: flex;
+
+}
+
+#entryHolder,
+#weatherholder {
+    padding: 0 3rem;
+}
+
+
+// .box {
+//     display: flex;
+// }
+
+#weatherpic div img {
+    height: 14rem;
+    width: 14rem;
+    margin: 0;
+    position: absolute;
+
+}
+
+#citypic div img {
+    height: 14rem;
+    width: 14rem;
+    margin: 0;
+    position: absolute;
+
+}
+
+.card1,
+.card2 {
+    box-shadow: 0 4px 8px 0 #2b256e;
+    transition: 0.3s;
+    height: 14rem;
+    width: 14rem;
+    position: relative;
+    left: 80%;
+
+}
+
+#citypic img {
+    height: 200px;
+    width: 350px;
+}
+
+.title {
+    font-size: 1.5rem;
+    text-decoration: underline #0c2a3d;
+
+}

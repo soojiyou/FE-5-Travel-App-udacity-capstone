@@ -1,10 +1,14 @@
 // import { geonames } from "../../server/apiInfo";
+const geonamesAPI = require('../../server/geonamesAPI');
+const weatherbitAPI = require('../../server/weatherbitAPI');
+const pixabayAPI = require('../../server/pixabayAPI');
 
 // /* Global Variables */
 // const searchval = document.getElementById('zip');
 // //const namekey = 
 // //const feelings = document.getElementById('feelings');
-// const generate = document.getElementById('generate');
+const generate = document.getElementById('generate');
+const submit = document.getElementById('submit');
 // //const key = "&appid=ec700b8387676a0dc3b3ac989505350a&units=imperial";
 // // const date = document.getElementById('date');
 // // const temp = document.getElementById('temp');
@@ -21,60 +25,139 @@
 // let d = new Date();
 // let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear(); //=toDateString()
 
-// const requestData = async (currenturl) => {
+// async function fetchapi() {
 //     try {
-//         const response = await fetch(currenturl);
-//         const result = await response.json();
-//         if (result.cod != 200) {
-//             return result;
-//         }
-//         return result;
+//         let destinationData = await geonamesAPI.geonames(request.body.destination, process.env.GEONAME_KEY);
+//         let weatherData = await weatherbitAPI.weatherbit(
+//             destinationData.latitude,
+//             destinationData.longitude,
+//             tripinfo.date,
+//             process.env.WEATHERBIT_KEY
+//         );
+//         let imageData = await pixabayAPI.pixabay(request.body.destination, country, process.env.PIXABAY_KEY);
+//         let departure = request.body.departure;
+//         let date = request.body.date;
+
+//         console.log(destinationData, weatherData, imageData, departure, date);
+//         return destinationData, weatherData, imageData, departure, date;
+
 //     } catch (e) {
 //         console.log("Error", e.message);
 //     }
-// };
+// }
+
 
 // const selectData = async (data) => {
 //     try {
-//         if (data.cod != 200) {
-//             return data;
-//         }
-
-//         // const weatherresult = {
-//         //     date: newDate, //
-//         //     temp: Math.round(data.main.temp),
-//         //     content: feelings.value,
-//         //     city: data.name,
-//         //     weather: data.weather[0].description,
-//         // };
-//         // return weatherresult;
-//         // const geonamesresult = {
-//         //     latitude: , //
-//         //     longitude:,
-//         //     country: ,
-//         // };
-//         return geonamesresult;
-
+//         const dataresult = {
+//             date: data., //
+//             temp: Math.round(data.main.temp),
+//             content: feelings.value,
+//             city: data.name,
+//             weather: data.weather[0].description,
+//         };
+//         return dataresult;
+//         tripinfo.departure = request.body.departure;
+//         tripinfo.date = request.body.date;
 
 //     } catch (e) {
 //         console.log("Error", e.message);
 //     }
 // };
 
-// const postData = async (url = '', data = {}) => {
-//     const response = await fetch(url, {
-//         method: 'POST',
-//         credentials: "same-origin",
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify(data)
-//     });
-//     try {
-//         const result = await response.json();
-//         return result;
-//     } catch (e) {
-//         console.log("Error", e.message);
-//     }
-// };
+
+async function postData(data) {
+    const url = '/api/information';
+    const response = await fetch(url, {
+        method: 'POST',
+        credentials: "same-origin",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    });
+    //console.log(JSON.stringify(data));
+    try {
+        let result = response.json();
+        console.log('postdata result is', result);
+        return result;
+    } catch (e) {
+        console.log("Error", e.message);
+    }
+};
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+    // check what text was put into the form field (id:name)
+    //let formText = document.getElementById('name').value;
+    let departurevalue = document.getElementById('departure').value;
+    let destinationvalue = document.getElementById('destination').value;
+    let datevalue = document.getElementById('date').value;
+    let data = {
+        departure: departurevalue,
+        destination: destinationvalue,
+        date: datevalue
+    };
+    console.log('data is', data);
+
+    //let resurl = Client.validUrlChecker(formText);
+
+    try {
+        // let dataResult = postData(data);
+        // console.log("handlesubmit dataResult is", dataResult);
+        // displayresult(dataResult);
+        let dataResult = postData(data).then((res) => { displayresult(dataResult); })
+
+    } catch (error) { return error };
+
+}
+async function displayresult() {
+    const request = await fetch('/result');
+    const data = await request.json();
+    document.getElementById("city").innerHTML = `City: ${data.destination.city}`;
+    document.getElementById("country_code").innerHTML = `Country Code: ${data.destination.country_code}`;
+    document.getElementById("latitude").innerHTML = `Latitude: ${data.destination.latitude}`;
+    document.getElementById("longitude").innerHTML = `Longitude: ${data.destination.longitude}`;
+    // document.getElementById("citypic").innerHTML = `dataResult.destination.pixabay_webformatURL`;
+    document.getElementById("weather").innerHTML = `Weather`;
+    document.getElementById("selecteddate").innerHTML = `Travel Date: ${data.date}`;
+    document.getElementById("temperature").innerHTML = `Temperature: ${Math.round(data.weather.temperature)} degrees`;
+    document.getElementById("description").innerHTML = `Description: ${data.weather.description}`;
+    //document.getElementById("weatherpic").innerHTML = `dataResult.weather.icon`;
+
+    // document.getElementById("country").innerHTML = `dataResult.country`;
+    // const createDiv1 = document.createElement('div');
+    // const createDiv2 = document.createElement('div');
+    const divforweatherpic = document.getElementById('weatherpic');
+    const divforcitypic = document.getElementById('citypic');
+    // createDiv1.setAttribute("class", "card1");
+    // divforweatherpic.appendChild(createDiv1);
+    // createDiv2.setAttribute("class", "card2");
+    // divforcitypic.appendChild(createDiv2);
+    const cityimage = data.destination.pixabay_webformatURL;
+    const weatherimage = data.weather.icon;
+
+    divforcitypic.innerHTML = `<img src="${cityimage}">`;
+    divforweatherpic.innerHTML = `<img src="${weatherimage}">`;
+
+
+}
+// async function updatePic() {
+//     const request = await fetch('/result');
+//     const data = await request.json();
+//     const createDiv1 = document.createElement('div');
+//     const createDiv2 = document.createElement('div');
+//     const divforweatherpic = document.getElementById('weatherpic');
+//     const divforcitypic = document.getElementById('citypic');
+//     createDiv1.setAttribute("class", "card1");
+//     divforweatherpic.appendChild(createDiv1);
+//     createDiv2.setAttribute("class", "card2");
+//     divforcitypic.appendChild(createDiv2);
+//     const cityimage = data.destination.pixabay_webformatURL;
+//     const weatherimage = data.weather.icon;
+
+//     createDiv1.innerHTML = `<img src="${cityimage}">`;
+//     createDiv2.innerHTML = `<img src="${weatherimage}">`;
+// }
 
 // const searchAndUpdateData = async () => {
 //     const request = await fetch('/result');
@@ -82,11 +165,17 @@
 //         const dataResult = await request.json()
 //         console.log(dataResult)
 //         // Write updated data result to DOM elements
-//         document.getElementById("temp").innerHTML = Math.round(dataResult.temp) + 'degrees';
-//         document.getElementById("content").innerHTML = dataResult.content;
-//         document.getElementById("date").innerHTML = dataResult.date;
-//         document.getElementById("city").innerHTML = dataResult.city;
-//         document.getElementById("weather").innerHTML = dataResult.weather;
+//         document.getElementById("city").innerHTML = dataResult.destination.city;
+//         document.getElementById("country_code").innerHTML = dataResult.destination.country_code;
+//         document.getElementById("latitude").innerHTML = dataResult.destination.latitude;
+//         document.getElementById("longitude").innerHTML = dataResult.destination.longitude;
+//         // document.getElementById("citypic").innerHTML = dataResult.destination.pixabay_webformatURL;
+//         document.getElementById("weather").innerHTML = 'Weather';
+//         document.getElementById("selecteddate").innerHTML = dataResult.date;
+//         document.getElementById("temperature").innerHTML = Math.round(dataResult.weather.temperature) + 'degrees';
+//         document.getElementById("description").innerHTML = dataResult.weather.description;
+//         //document.getElementById("weatherpic").innerHTML = dataResult.weather.icon;
+
 //         // document.getElementById("country").innerHTML = dataResult.country;
 
 //     }
@@ -95,86 +184,31 @@
 //     }
 // }
 
-// const updateWeatherPic = async () => {
-//     const request = await fetch('/result');
-//     const weatherData = await request.json();
-//     let temppic = Math.round(weatherData.temp);
-//     const createDiv = document.createElement('div');
-//     const divforpic = document.getElementById('weatherpic');
-//     createDiv.setAttribute("class", "card");
-//     divforpic.appendChild(createDiv);
-//     console.log(temppic);
-//     if (temppic < 32) {
-//         createDiv.innerHTML = `<img src="https://cdn1.vectorstock.com/i/1000x1000/51/20/cartoon-character-weather-forecast-sign-snow-cloud-vector-24545120.jpg">`;
-//     }
-//     else if (temppic > 70) {
-//         createDiv.innerHTML = `<img src="https://cdn0.iconfinder.com/data/icons/weater/500/vi102_11_sun_cartoon_object_logo_sunny_bright_climate-512.png">`;
-//     }
-//     else {
-//         createDiv.innerHTML = `<img src="https://img.favpng.com/4/12/0/cloud-drawing-euclidean-vector-sun-png-favpng-aYgfTuhntALzGJ1JTquJcbSjm.jpg">`;
-//     }
-// }
 
-// generate.addEventListener("click", serverActionStep);
+
+
+// submit.addEventListener("click", serverActionStep);
+
 
 // function serverActionStep(event) {
 //     event.preventDefault();
-//     geonames(searchval, namekey)
+//     postData("/api/information")
+//         .then((data) => {
+//             searchAndUpdateData("/result", data)
+//                 .then((data) => {
+//                     updatePic("/result", data)
+//                 });
+
+//         });
+
+
 // }
 
-// // function serverActionStep(event) {
-// //     event.preventDefault();
-// //     const requestURL = `${baseURI}${zip.value},${key}`;
-// //     requestData(requestURL)
-// //         .then((data) => {
-// //             selectData(data)
-// //                 .then((weatherresult) => {
-// //                     postData("/add", weatherresult)
-// //                         .then((data) => {
-// //                             searchAndUpdateData("/result")
-// //                                 .then((data) => {
-// //                                     updateWeatherPic("/result")
-// //                                 });
+//submit.addEventListener("click", handleSubmit());
 
 
-// //                         });
-// //                 });
-
-// //         });
-// // }
-
-// export {
-//     requestData,
-//     selectData,
-//     postData,
-//     searchAndUpdateData,
-//     updateWeatherPic,
-//     serverActionStep
-// }
-
-
-/* Function to POST trip data to Express app and get trip details */
-const fetchTripData = async (data) => {
-    //  POST request info
-    const reqBodyForPost = {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
-    // console.log(JSON.stringify(data));
-    const url = '/api/coordination';
-    console.log('Creating promise');
-    const response = await fetch(url, reqBodyForPost);
-    try {
-        console.log('trying..');
-        console.log('done\n');
-        return response.json();
-    } catch (error) {
-        console.log('That is the error: ', error);
-    }
+module.exports = {
+    displayresult,
+    postData,
+    handleSubmit,
 };
-
-module.exports = fetchTripData;

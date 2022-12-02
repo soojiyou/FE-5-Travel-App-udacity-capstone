@@ -14,17 +14,26 @@
 <body>
     <div id="app">
         <div class="holder headline">
-            Weather Journal App
+            Travel App
         </div>
 
-        <section class="content">
-            <form class="form content" method="post" action="/api/coordination" target="_blank">
-                <input type="text" name="departure" id="departure" class="dark" placeholder="departure">
-                <input type="text" name="destination" id="destination" class="dark" placeholder="destination" required>
-                <input type="date" name="date" id="date" class="dark">
-                <input type="submit" id="submit" class="dark" class="button dark" value="Submit">
+
+        <div class="content">
+            <form class="form content" method="post" target="_blank" onsubmit="return Client.handleSubmit(event)">
+                <label for="departure">Enter departure here</label>
+                <input type="text" name="departure" id="departure" class="required_input" placeholder="departure"
+                    required>
+                <label for="destination">Enter destination here</label>
+                <input type="text" name="destination" id="destination" class="required_input" placeholder="destination"
+                    required>
+                <label for="date">Select date here</label>
+                <input type="date" name="date" id="date" class="required_input" required>
+                <div id="submitholder">
+                    <input type="submit" id="submit" class="dark" class="button dark" value="Submit">
+                </div>
             </form>
-        </section>
+        </div>
+
 
         <!-- <section class="content">
             <form class="form content" method="post" action="/add" target="_blank">
@@ -34,7 +43,7 @@
             </form>
         </section> -->
 
-        <div class=userInputBox>
+        <!-- <div class=userInputBox>
             <div class="holder zip">
                 <label for="destination">Enter destination here</label>
                 <input type="text" id="destination" placeholder="enter zip code here">
@@ -51,20 +60,24 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <div class="holder entry">
             <div class="title">Most Recent Entry</div>
             <div class="holder box">
                 <div id="entryHolder">
-                    <!-- <h2 class="city" id="city"> </h2> -->
+                    <h2 class="city" id="city"> </h2>
+                    <div id="country_code"></div>
                     <div id="latitude"></div>
                     <div id="longitude"></div>
-                    <div id="country"></div>
-                    <!-- <div id="weather"></div> -->
+                    <div id="citypic"></div>
                 </div>
-                <div id="picholder">
+                <div id="weatherholder">
+                    <h2 class="weather" id="weather"> </h2>
+                    <div id="selecteddate"></div>
+                    <div id="temperature"></div>
+                    <div id="description"></div>
                     <div id="weatherpic"></div>
                 </div>
             </div>

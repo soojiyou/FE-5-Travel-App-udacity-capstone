@@ -37,7 +37,7 @@ async function weatherbit(latitude, longitude, date, key) {
     const departureDate = new Date(`${date}`).getTime();
     const interval = departureDate - d;
     const days = Math.floor(interval / (24 * 60 * 60 * 1000));
-    //console.log(d, today, departureDate, date, days, historicalDate, historicalDateinput);
+    console.log(d, today, departureDate, date, days, historicalDate, historicalDateinput);
     //  If trip is today
     if (0 <= days < 1) {
         const response = await fetch(`${baseUrl}/current?lat=${latitude}&lon=${longitude}&key=${key}`);
@@ -53,7 +53,7 @@ async function weatherbit(latitude, longitude, date, key) {
             return error;
         }
         //  If trip is within 16 days
-    } else if (days >= 1 && days < 16) {
+    } else if (days >= 1 && days < 8) {
         const response = await fetch(`${baseUrl}/forecast/daily?lat=${latitude}&lon=${longitude}&key=${key}`);
         const result = await response.json();
         console.log('Weatherbit API for forcast:', response.status, response.ok);
@@ -66,8 +66,8 @@ async function weatherbit(latitude, longitude, date, key) {
         } catch (error) {
             return error;
         }
-    } else if (days >= 16) {
-        console.log("Weatherbit API for history for refering: unable to define weather since the departure date is later than 16 days");
+    } else if (days >= 8) {
+        console.log("Weatherbit API for history for refering: unable to define weather since the departure date is later than 7 days");
         try {
 
             return {

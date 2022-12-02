@@ -1,4 +1,5 @@
-
+//https://github.com/Candidemile/Udacity-Capstone-Travel_App/blob/master/src/server/pixabayAPI.js
+//https://github.com/thatGuyAnes/TravelB/blob/master/src/server/app.js
 const fetch = require('node-fetch');
 
 async function geonames(cityname, userkey) {
@@ -34,14 +35,19 @@ async function geonames(cityname, userkey) {
             //     return dataset[i];
             // }
             data = data.geonames[0];
-            dataset = {
-                latitude: data.lat.slice(0, 6),
-                longitude: data.lng.slice(0, 6),
-                country_code: data.countryCode,
-                city: data.name
-            }
+            // dataset = {
+            //     latitude: data.lat.slice(0, 6),
+            //     longitude: data.lng.slice(0, 6),
+            //     country_code: data.countryCode,
+            //     city: data.name
+            // }
             try {
-                return dataset;
+                return {
+                    latitude: data.lat.slice(0, 6),
+                    longitude: data.lng.slice(0, 6),
+                    country_code: data.countryCode,
+                    city: data.name
+                };
             } catch (error) {
                 return error;
             }

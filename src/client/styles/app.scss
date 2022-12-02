@@ -1,3 +1,5 @@
+@import './result.scss';
+
 body {
     background: #fffff8;
     font-family: 'Ibarra Real Nova', serif;
@@ -36,132 +38,83 @@ label {
 }
 
 
-#entryHolder {
-    padding: 0 3rem;
-}
-
 
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 
-input {
+.required_input {
     display: block;
     min-height: 5rem;
     width: 770.250px;
     border: 5px solid #3b4a6b;
     background: none;
-    color: #f0d43a;
+    color: #fffff8;
     font-size: 20px;
     font-family: 'Ibarra Real Nova', serif;
+
 }
 
-button {
+#submitholder {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 30%;
+    position: relative;
+    left: 50%;
+    //-ms-transform: translateX(-50%);
+    transform: translateX(-50%);
 
-    color: #3b4a6b;
+}
+
+#submit {
+    color: #fffff8;
     font-size: 26px;
     font-family: 'Cormorant SC', serif;
-    border: none;
-    width: 14rem;
-    height: 14rem;
+    //border: none;
+    border: 5px solid #3b4a6b;
+    margin: 3rem 0;
+    min-height: 5rem;
+    width: 100%;
     background: none;
-    border: none;
     transition-duration: 1s;
 }
 
-button:hover {
+
+#submit:hover {
     background: none;
-    border: 5px solid #e8d255;
-    color: #fffff8;
+    border: 5px solid #fffff8;
+    color: #3b4a6b;
     border-radius: 50%;
 }
 
-#generatebutton {
-    position: relative;
-    margin-left: 1rem;
 
-}
+// .center-v {
+//     display: flex;
+//     align-items: center;
+// }
 
-.verticalcenter {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
 
-.userInputBox {
-    border: 5px solid #3b4a6b;
-    padding: 2rem;
-}
+// #submit {
+//     position: relative;
+//     margin-left: 1rem;
+
+// }
+// #spacesubmit {
+//     display: block;
+//     margin: 2rem;
+// }
+
+// .verticalcenter {
+//     margin: 1rem;
+//     position: absolute;
+//     left: 50%;
+//     -ms-transform: translateX(-50%);
+//     transform: translateX(-50%);
+// }
+
 
 h1 {
     font-size: 36px;
 }
 
-textarea {
-    border: 5px solid #3b4a6b;
-    background: none;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Ibarra Real Nova', serif;
-    height: 100%;
-    min-height: 15rem;
-
-}
-
-.feelbox {
-    display: flex;
-    height: 100%;
-}
-
 /* Reset style for HTML element on active to have no border*/
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-
-/* Style for Placeholder Text*/
-::placeholder {
-    /* Firefox, Chrome, Opera */
-    color: #fffff8;
-    font-family: 'Ibarra Real Nova', serif;
-
-}
-
-
-.entry {
-    background: rgba(59, 74, 107, .4);
-    margin: 1rem 0;
-    padding: 2rem;
-
-}
-
-.box {
-    display: flex;
-}
-
-#weatherpic div img {
-    height: 14rem;
-    width: 14rem;
-    margin: 0;
-    position: absolute;
-
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 #2b256e;
-    transition: 0.3s;
-    height: 14rem;
-    width: 14rem;
-    position: relative;
-    left: 80%;
-
-}
-
-.title {
-    font-size: 1.5rem;
-    text-decoration: underline #0c2a3d;
-
-}
