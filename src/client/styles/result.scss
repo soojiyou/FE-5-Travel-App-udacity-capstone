@@ -69,3 +69,10 @@ button:focus {
     text-decoration: underline #0c2a3d;
 
 }
+
+.cityholder {
+    //padding: 0 2rem;
+    display: grid;
+    // grid-template-rows: 100px 100px;
+    grid-gap: 10px;
+}

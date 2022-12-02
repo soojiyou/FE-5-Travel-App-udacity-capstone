@@ -37,7 +37,9 @@ label {
     margin: 1rem 0;
 }
 
-
+.content {
+    min-width: 750px;
+}
 
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -45,7 +47,7 @@ label {
 .required_input {
     display: block;
     min-height: 5rem;
-    width: 770.250px;
+    width: 100%;
     border: 5px solid #3b4a6b;
     background: none;
     color: #fffff8;
