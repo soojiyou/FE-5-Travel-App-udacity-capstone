@@ -85,10 +85,18 @@ async function addData(request, response) {
 // });
 
 app.get("/result", async (request, response) => {
+
     if (tripinfo) {
         response.send(tripinfo);
     }
 });
+
+// app.get("/mytrip", async (request, response) => {
+//     // if (tripinfo) {
+//     //     response.send(tripinfo);
+//     // }
+//     window.location.href = "mytrip.html";
+// });
 
 
 

@@ -1,37 +1,11 @@
 const fetch = require('node-fetch');
 
 
-// async function weatherbit(latitude, longitude, date, apikey) {
-//     let url = 'https://api.weatherbit.io/v2.0/history/hourly?';
-//     let lastYearDate = date.split('-');
-//     lastYearDate[0] = (parseInt(lastYearDate[0]) - 1).toString();
-//     lastYearDate = lastYearDate.join('-');
-//     url = `${url}key=${apikey}&lat=${latitude}&lon=${longitude}&start_date=${lastYearDate}:12&end_date=${lastYearDate}:13`;
-
-//     let response = await fetch(url);
-//     console.log('Weatherbit API:', response.status, response.ok);
-
-//     if (response.ok) {
-//         let data = await response.json();
-//         // console.log(data);
-//         return {
-//             temperature: data.data[0].temp,
-//             weather_icon: 'https://www.weatherbit.io/static/img/icons/' + data.data[0].weather.icon + '.png',
-//             weather_description: data.data[0].weather.description
-//         };
-//     } else {
-//         console.log(`ERROR: code ${response.status} ${response.statusText}.`);
-//     }
-// };
-
-
 async function weatherbit(latitude, longitude, date, key) {
     const baseUrl = 'https://api.weatherbit.io/v2.0';
     const d = new Date().getTime();
     const today = d.toString();
     const datesplit = date.split('-');
-    // let historicalstartDate = [`${datesplit[0] - 1}`, datesplit[1], `${datesplit[2] - 1}`];
-    // let historicalstartDateinput = historicalstartDate.join('-');
     let historicalDate = [`${datesplit[0] - 1}`, datesplit[1], `${datesplit[2]}`];
     let historicalDateinput = historicalDate.join('-');
     const departureDate = new Date(`${date}`).getTime();

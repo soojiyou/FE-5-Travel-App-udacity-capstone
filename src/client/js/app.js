@@ -1,8 +1,4 @@
 // import { geonames } from "../../server/apiInfo";
-const geonamesAPI = require('../../server/geonamesAPI');
-const weatherbitAPI = require('../../server/weatherbitAPI');
-const pixabayAPI = require('../../server/pixabayAPI');
-
 // /* Global Variables */
 // const searchval = document.getElementById('zip');
 // //const namekey = 
@@ -20,50 +16,6 @@ const submit = document.getElementById('submit');
 // const latitude = document.getElementById('latitude');
 // const longitude = document.getElementById('longitude');
 // const country = document.getElementById('country');
-
-// // Create a new date instance dynamically with JS
-// let d = new Date();
-// let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear(); //=toDateString()
-
-// async function fetchapi() {
-//     try {
-//         let destinationData = await geonamesAPI.geonames(request.body.destination, process.env.GEONAME_KEY);
-//         let weatherData = await weatherbitAPI.weatherbit(
-//             destinationData.latitude,
-//             destinationData.longitude,
-//             tripinfo.date,
-//             process.env.WEATHERBIT_KEY
-//         );
-//         let imageData = await pixabayAPI.pixabay(request.body.destination, country, process.env.PIXABAY_KEY);
-//         let departure = request.body.departure;
-//         let date = request.body.date;
-
-//         console.log(destinationData, weatherData, imageData, departure, date);
-//         return destinationData, weatherData, imageData, departure, date;
-
-//     } catch (e) {
-//         console.log("Error", e.message);
-//     }
-// }
-
-
-// const selectData = async (data) => {
-//     try {
-//         const dataresult = {
-//             date: data., //
-//             temp: Math.round(data.main.temp),
-//             content: feelings.value,
-//             city: data.name,
-//             weather: data.weather[0].description,
-//         };
-//         return dataresult;
-//         tripinfo.departure = request.body.departure;
-//         tripinfo.date = request.body.date;
-
-//     } catch (e) {
-//         console.log("Error", e.message);
-//     }
-// };
 
 
 async function postData(data) {
@@ -84,7 +36,7 @@ async function postData(data) {
     }
 };
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault();
 
     // check what text was put into the form field (id:name)
@@ -105,18 +57,36 @@ function handleSubmit(event) {
         // let dataResult = postData(data);
         // console.log("handlesubmit dataResult is", dataResult);
         // displayresult(dataResult);
-        let dataResult = postData(data).then((res) => { displayresult(dataResult); })
+        let dataResult = postData(data).then((res) => { displayresult(dataResult); });
+        // const request = await fetch('/mytrip');
+        // const data = await request.json();
 
     } catch (error) { return error };
 
 }
+function countdowndays(dday) {
+    const d = new Date().getTime();
+    const departureDate = new Date(dday).getTime();
+    const interval = departureDate - d;
+    const days = Math.floor(interval / (24 * 60 * 60 * 1000));
+    console.log('days:', days);
+    return days;
+}
 async function displayresult() {
     const request = await fetch('/result');
     const data = await request.json();
+    const departuredate = data.date;
+    const days = countdowndays(departuredate);
+    console.log('departday', departuredate);
+    document.getElementById("travelresult").innerHTML = `My trip to: ${data.destination.city}, ${data.destination.country_code}`;
+    document.getElementById("cityinfo").innerHTML = `Destination Information:`;
+    document.getElementById("traveldepart").innerHTML = `Departing: ${data.date}`;
+    document.getElementById("traveldepartinfo").innerHTML = `My trip (${data.destination.city}, ${data.destination.country_code}) is ${days} days away.`;
     document.getElementById("city").innerHTML = `City: ${data.destination.city}`;
-    document.getElementById("country_code").innerHTML = `Country Code: ${data.destination.country_code}`;
-    document.getElementById("latitude").innerHTML = `Latitude: ${data.destination.latitude}`;
-    document.getElementById("longitude").innerHTML = `Longitude: ${data.destination.longitude}`;
+    //document.getElementById("country_code").innerHTML = `Country Code: ${data.destination.country_code}`;
+    document.getElementById("citygeo").innerHTML = `Latitude: ${data.destination.latitude}, Longitude: ${data.destination.longitude}`;
+    // document.getElementById("latitude").innerHTML = `Latitude: ${data.destination.latitude}`;
+    // document.getElementById("longitude").innerHTML = `Longitude: ${data.destination.longitude}`;
     // document.getElementById("citypic").innerHTML = `dataResult.destination.pixabay_webformatURL`;
     document.getElementById("weather").innerHTML = `Weather`;
     document.getElementById("selecteddate").innerHTML = `Travel Date: ${data.date}`;
@@ -141,48 +111,6 @@ async function displayresult() {
 
 
 }
-// async function updatePic() {
-//     const request = await fetch('/result');
-//     const data = await request.json();
-//     const createDiv1 = document.createElement('div');
-//     const createDiv2 = document.createElement('div');
-//     const divforweatherpic = document.getElementById('weatherpic');
-//     const divforcitypic = document.getElementById('citypic');
-//     createDiv1.setAttribute("class", "card1");
-//     divforweatherpic.appendChild(createDiv1);
-//     createDiv2.setAttribute("class", "card2");
-//     divforcitypic.appendChild(createDiv2);
-//     const cityimage = data.destination.pixabay_webformatURL;
-//     const weatherimage = data.weather.icon;
-
-//     createDiv1.innerHTML = `<img src="${cityimage}">`;
-//     createDiv2.innerHTML = `<img src="${weatherimage}">`;
-// }
-
-// const searchAndUpdateData = async () => {
-//     const request = await fetch('/result');
-//     try {
-//         const dataResult = await request.json()
-//         console.log(dataResult)
-//         // Write updated data result to DOM elements
-//         document.getElementById("city").innerHTML = dataResult.destination.city;
-//         document.getElementById("country_code").innerHTML = dataResult.destination.country_code;
-//         document.getElementById("latitude").innerHTML = dataResult.destination.latitude;
-//         document.getElementById("longitude").innerHTML = dataResult.destination.longitude;
-//         // document.getElementById("citypic").innerHTML = dataResult.destination.pixabay_webformatURL;
-//         document.getElementById("weather").innerHTML = 'Weather';
-//         document.getElementById("selecteddate").innerHTML = dataResult.date;
-//         document.getElementById("temperature").innerHTML = Math.round(dataResult.weather.temperature) + 'degrees';
-//         document.getElementById("description").innerHTML = dataResult.weather.description;
-//         //document.getElementById("weatherpic").innerHTML = dataResult.weather.icon;
-
-//         // document.getElementById("country").innerHTML = dataResult.country;
-
-//     }
-//     catch (e) {
-//         console.log("Error", e.message);
-//     }
-// }
 
 
 
@@ -208,6 +136,7 @@ async function displayresult() {
 
 
 module.exports = {
+    countdowndays,
     displayresult,
     postData,
     handleSubmit,
