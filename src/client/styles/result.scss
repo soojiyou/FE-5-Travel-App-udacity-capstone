@@ -13,60 +13,78 @@ button:focus {
 
 }
 
-
-.entry {
+.disflex {
+    display: block;
     background: rgba(59, 74, 107, .4);
-    //margin: 1rem 0;
     padding: 2rem;
-    display: flex;
+    border-radius: 20px;
+    width: 50rem;
+
+    .box {
+        padding: 3rem 1rem;
+        // text-align: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        //border: 1px solid #000;
+        border-radius: 70px 20px;
+        background: rgba(147, 179, 247, 0.4);
+        margin: 1rem 0;
+
+        // .entryHolder,
+        // .weatherholder {
+        //     border: 1px solid #000;
+        //     border-radius: 20px;
+        //     background: rgba(147, 179, 247, 0.4);
+        //     margin: 1rem;
+        // }
+
+    }
 
 }
 
-#entryHolder,
-#weatherholder {
-    padding: 0 3rem;
+.disnone {
+    display: none;
 }
-
 
 // .box {
-//     display: flex;
+//     padding: 3rem 1rem;
+//     // text-align: center;
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+
+//     .entryHolder,
+//     .weatherholder {
+//         border: 1px solid #000;
+//         background: rgba(196, 212, 246, 0.4);
+//         margin: 1rem;
+//     }
+
 // }
 
-#weatherpic div img {
-    height: 14rem;
-    width: 14rem;
-    margin: 0;
-    position: absolute;
-
+#weatherinfodiv,
+#travelinfodiv {
+    padding: 0 1rem;
+    text-align: center;
 }
 
-#citypic div img {
-    height: 14rem;
-    width: 14rem;
+#weatherpic img {
+    height: 8rem;
+    //width: 10rem;
     margin: 0;
-    position: absolute;
-
-}
-
-.card1,
-.card2 {
-    box-shadow: 0 4px 8px 0 #2b256e;
-    transition: 0.3s;
-    height: 14rem;
-    width: 14rem;
     position: relative;
-    left: 80%;
 
 }
 
-#citypic img {
-    height: 200px;
-    width: 350px;
-}
+// .box {
+//     padding: 3rem 1rem;
+//     // text-align: center;
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+// }
 
-.title {
-    font-size: 1.5rem;
-    text-decoration: underline #0c2a3d;
+#weatherdivs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
 }
 
@@ -75,4 +93,81 @@ button:focus {
     display: grid;
     // grid-template-rows: 100px 100px;
     grid-gap: 10px;
+    position: relative;
+
+    #citypic {
+        img {
+            height: 20rem;
+            width: 100%;
+            background-size: cover;
+            // border-radius: 120px 20px 120px 20px;
+            border-radius: 70px 20px;
+
+        }
+
+        // height: 14rem;
+        // width: 14rem;
+        margin: 0;
+
+    }
+
+    .cityname {
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    color: #fffff8;
+    margin: 1rem 0.5rem;
+}
+
+h3 {
+    font-size: 1rem;
+    color: #fffff8;
+    margin: 1rem 0.5rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+    color: #000;
+    margin: 1rem 0.5rem;
+}
+
+h5 {
+    font-size: 1.2rem;
+    color: #000;
+    margin: 1rem 0.5rem;
+}
+
+h6 {
+    font-size: 1rem;
+    color: #000;
+    margin: 1rem 0.5rem;
+}
+
+.cityinfo,
+.weather {
+    text-decoration: underline #0c2a3d;
+}
+
+// .card1,
+// .card2 {
+//     box-shadow: 0 4px 8px 0 #2b256e;
+//     transition: 0.3s;
+//     height: 14rem;
+//     width: 14rem;
+//     position: relative;
+//     left: 80%;
+
+// }
+
+
+
+.title {
+    font-size: 1.5rem;
+    text-decoration: underline #0c2a3d;
+
 }

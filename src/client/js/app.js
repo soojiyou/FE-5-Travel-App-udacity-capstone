@@ -5,6 +5,7 @@
 // //const feelings = document.getElementById('feelings');
 const generate = document.getElementById('generate');
 const submit = document.getElementById('submit');
+//import { useNavigate } from "react-router-dom";
 // //const key = "&appid=ec700b8387676a0dc3b3ac989505350a&units=imperial";
 // // const date = document.getElementById('date');
 // // const temp = document.getElementById('temp');
@@ -36,8 +37,28 @@ async function postData(data) {
     }
 };
 
+// function showHide() {
+//     let formdiv = document.getElementsByClassName('hiding');
+//     let resultdiv = document.getElementsByClassName('hiding');
+//     // if (div.style.display == 'none') {
+//     //     div.style.display = 'flex';
+//     // }
+//     // else {
+//     //     div.style.display = 'none';
+//     // }
+
+// }
 async function handleSubmit(event) {
+    // document.getElementsByClassName('enh').classList.add('entry');
+    // document.getElementById('hiding').addEventListener('submit', function (event) {
+    //     // Do something with the form's data here
+    //     this.style['display'] = 'none';
+    // });
     event.preventDefault();
+    let formdiv = document.getElementById('formh');
+    let resultdiv = document.getElementById('resulth');
+    formdiv.classList.add("disnone");
+    resultdiv.classList.add("disflex");
 
     // check what text was put into the form field (id:name)
     //let formText = document.getElementById('name').value;
@@ -51,16 +72,14 @@ async function handleSubmit(event) {
     };
     console.log('data is', data);
 
-    //let resurl = Client.validUrlChecker(formText);
-
     try {
+        //document.getElementById('hiding').style.display = 'none';
+        //document.getElementById('second').style.display = '';
         // let dataResult = postData(data);
         // console.log("handlesubmit dataResult is", dataResult);
         // displayresult(dataResult);
         let dataResult = postData(data).then((res) => { displayresult(dataResult); });
-        // const request = await fetch('/mytrip');
-        // const data = await request.json();
-
+        //document.getElementById('hiding').classList.add('hide');
     } catch (error) { return error };
 
 }
@@ -78,6 +97,7 @@ async function displayresult() {
     const departuredate = data.date;
     const days = countdowndays(departuredate);
     console.log('departday', departuredate);
+    document.getElementById("title").innerHTML = `My trip`;
     document.getElementById("travelresult").innerHTML = `My trip to: ${data.destination.city}, ${data.destination.country_code}`;
     document.getElementById("cityinfo").innerHTML = `Destination Information:`;
     document.getElementById("traveldepart").innerHTML = `Departing: ${data.date}`;
@@ -88,8 +108,8 @@ async function displayresult() {
     // document.getElementById("latitude").innerHTML = `Latitude: ${data.destination.latitude}`;
     // document.getElementById("longitude").innerHTML = `Longitude: ${data.destination.longitude}`;
     // document.getElementById("citypic").innerHTML = `dataResult.destination.pixabay_webformatURL`;
-    document.getElementById("weather").innerHTML = `Weather`;
-    document.getElementById("selecteddate").innerHTML = `Travel Date: ${data.date}`;
+    document.getElementById("weather").innerHTML = `Weather of Travel Date:`;
+    document.getElementById("selecteddate").innerHTML = `Date: ${data.date}`;
     document.getElementById("temperature").innerHTML = `Temperature: ${Math.round(data.weather.temperature)} degrees`;
     document.getElementById("description").innerHTML = `Description: ${data.weather.description}`;
     //document.getElementById("weatherpic").innerHTML = `dataResult.weather.icon`;
@@ -109,30 +129,24 @@ async function displayresult() {
     divforcitypic.innerHTML = `<img src="${cityimage}">`;
     divforweatherpic.innerHTML = `<img src="${weatherimage}">`;
 
-
 }
 
+async function updateSaveTrip() {
 
+    const cityname = document.getElementById("travelresult").value;
+    const destitle = document.getElementById("cityinfo").value;
+    const departdate = document.getElementById("traveldepart").value;
+    const createDiv = document.createElement('div');
+    const divfortrip = document.getElementsByClassName('save');
+    createDiv.classList.add("card");
+    divfortrip.appendChild(createDiv);
+    createDiv.innerHTML = `My Trips:` + "/n" +
+        cityname + "/n" +
+        destitle + "/n" +
+        departdate;
+    // console.log(trips);
 
-
-// submit.addEventListener("click", serverActionStep);
-
-
-// function serverActionStep(event) {
-//     event.preventDefault();
-//     postData("/api/information")
-//         .then((data) => {
-//             searchAndUpdateData("/result", data)
-//                 .then((data) => {
-//                     updatePic("/result", data)
-//                 });
-
-//         });
-
-
-// }
-
-//submit.addEventListener("click", handleSubmit());
+}
 
 
 module.exports = {
@@ -140,4 +154,5 @@ module.exports = {
     displayresult,
     postData,
     handleSubmit,
+    updateSaveTrip,
 };

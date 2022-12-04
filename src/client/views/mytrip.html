@@ -12,6 +12,11 @@
 </head>
 
 <body>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const apples = urlParams.get('form');
+        console.log(apples);
+    </script>
     <div id="app">
         <div class="holder headline">
             Travel App

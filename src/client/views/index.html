@@ -18,9 +18,8 @@
         </div>
 
 
-        <div class="content">
-            <form class="form content" method="post" target="_blank" onsubmit="return Client.handleSubmit(event)"
-                action="mytrip.html">
+        <div class="content" id="formh">
+            <form class="form content" method="GET" target="_blank" onsubmit="return Client.handleSubmit(event)">
                 <label for="departure">Enter departure here</label>
                 <input type="text" name="departure" id="departure" class="required_input" placeholder="departure"
                     required>
@@ -31,15 +30,15 @@
                 <input type="date" name="date" id="date" class="required_input" required>
                 <div id="submitholder">
                     <input type="submit" id="submit" class="dark" class="button dark" value="Submit">
-                    <!-- <button onclick="window.location.href = './trippage/mytrip.html';"> Submit </button> -->
+                    <!-- <button><a href = "mytrip.html"></a> Submit </button> -->
                 </div>
             </form>
         </div>
 
 
-        <!-- <div class="holder entry">
+        <div class="holder entry" id="resulth">
             <div class="cityholder">
-                <div class="title">My Trip</div>
+                <div class="title" id="title"></div>
                 <div id="citypic"></div>
                 <div class="cityname">
                     <h2 class="city" id="city"> </h2>
@@ -47,26 +46,38 @@
                 </div>
             </div>
             <div class="holder box">
-                <div id="entryHolder">
-                    <h3 class="cityinfo" id="cityinfo"></h3>
-                    <h4>
-                        <div id="travelresult"></div>
-                        <div id="traveldepart"></div>
-                        <div id="traveldepartinfo"></div>
-                    </h4>
+                <div class="entryHolder">
+                    <h4 class="cityinfo" id="cityinfo"></h4>
+                    <div id="travelinfodiv">
+                        <h5>
+                            <div id="travelresult"></div>
+                            <div id="traveldepart"></div>
+                            <div id="traveldepartinfo"></div>
+                        </h5>
+                    </div>
 
                 </div>
-                <div id="weatherholder">
+                <div class="weatherholder">
                     <h4 class="weather" id="weather"> </h4>
-                    <h5>
-                        <div id="selecteddate"></div>
-                        <div id="temperature"></div>
-                        <div id="description"></div>
-                        <div id="weatherpic"></div>
-                    </h5>
+                    <div id="weatherinfodiv">
+                        <h5>
+                            <div id="weatherdivs">
+                                <div id="weatherdiv1">
+                                    <div id="selecteddate"></div>
+                                    <div id="temperature"></div>
+                                    <div id="description"></div>
+                                </div>
+                                <div id="weatherdiv2">
+                                    <div id="weatherpic"></div>
+                                </div>
+                            </div>
+                        </h5>
+                    </div>
                 </div>
+                <div class="buttonclass"><button onclick="Client.store()" type="button">Save</button></div>
+                <div class="save"></div>
             </div>
-        </div> -->
+        </div>
     </div>
     <!-- <script src="/js/app.js" type="text/javascript"></script> -->
 
