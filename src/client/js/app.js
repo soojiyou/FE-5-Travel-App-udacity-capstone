@@ -131,22 +131,23 @@ async function displayresult() {
 
 }
 
-async function updateSaveTrip() {
 
-    const cityname = document.getElementById("travelresult").value;
-    const destitle = document.getElementById("cityinfo").value;
-    const departdate = document.getElementById("traveldepart").value;
-    const createDiv = document.createElement('div');
-    const divfortrip = document.getElementsByClassName('save');
-    createDiv.classList.add("card");
-    divfortrip.appendChild(createDiv);
-    createDiv.innerHTML = `My Trips:` + "/n" +
-        cityname + "/n" +
-        destitle + "/n" +
-        departdate;
-    // console.log(trips);
+// async function updateSaveTrip() {
 
-}
+//     const cityname = document.getElementById("travelresult").value;
+//     const destitle = document.getElementById("cityinfo").value;
+//     const departdate = document.getElementById("traveldepart").value;
+//     const createDiv = document.createElement('div');
+//     const divfortrip = document.getElementsByClassName('save');
+//     createDiv.classList.add("card");
+//     divfortrip.appendChild(createDiv);
+//     createDiv.innerHTML = `My Trips:` + "/n" +
+//         cityname + "/n" +
+//         destitle + "/n" +
+//         departdate;
+//     // console.log(trips);
+
+// }
 
 
 module.exports = {
@@ -154,5 +155,5 @@ module.exports = {
     displayresult,
     postData,
     handleSubmit,
-    updateSaveTrip,
+
 };

@@ -13,7 +13,8 @@ export {
     displayresult,
     handleSubmit,
     countdowndays,
-    updateSaveTrip,
     store,
+    // updateSaveTrip,
+    // saveTrip,
 
 }
