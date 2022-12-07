@@ -1,4 +1,3 @@
-//https://billing.stripe.com/p/session/live_YWNjdF8xOWtmWFpDdTlad1JXZ2dsLF9NdjNReTQ3M2NPNlppWkFsRHBUcEJncmlHaHFxd3JZ0100lBEOVWvD
 const fetch = require('node-fetch');
 
 

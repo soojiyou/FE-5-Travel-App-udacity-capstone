@@ -1,5 +1,4 @@
-//https://github.com/Candidemile/Udacity-Capstone-Travel_App/blob/master/src/server/pixabayAPI.js
-//https://github.com/thatGuyAnes/TravelB/blob/master/src/server/app.js
+
 const fetch = require('node-fetch');
 
 async function geonames(cityname, userkey) {
