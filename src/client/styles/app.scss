@@ -9,6 +9,7 @@ body {
 
 }
 
+
 #app {
     margin: 2rem 0;
     position: relative;
@@ -27,6 +28,11 @@ body {
     /* font-family: 'Ibarra Real Nova', serif; */
     font-family: 'Cormorant SC', serif;
     margin: 2rem;
+}
+
+#savedtripspace,
+#savedtrip {
+    height: fit-content;
 }
 
 label {

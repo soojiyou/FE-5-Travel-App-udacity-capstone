@@ -14,6 +14,13 @@
 
 <body>
     <div id="app">
+
+
+        <div id="savedtripspace">
+            <button id="savedinfoclick" onclick="Client.showSavedTrip()" type="button">Saved Trip</button>
+            <div id="savedtrip"></div>
+        </div>
+
         <div class="holder headline">
             Travel App
         </div>
@@ -90,7 +97,14 @@
     </div>
     <!-- <script src="/js/app.js" type="text/javascript"></script> -->
 
-
+    <script>
+        //serviceWorker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
 </body>
 
 </html>

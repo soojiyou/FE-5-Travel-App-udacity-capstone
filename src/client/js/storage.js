@@ -28,7 +28,39 @@ async function store() {
 
 }
 
+//function to show saved trips after refresh or something
 
+function showSavedTrip() {
+
+    //make saved trip visible after click
+    let savedtrip = document.getElementById('savedtrip');
+
+    savedtrip.classList.add("disflex");
+
+    let iteminput = window.localStorage.getItem('input')
+
+
+
+    //create div to show saved information in savedtrip
+    let container = document.getElementById('savedtrip');
+    let createSavedLi = document.createElement('div');
+    createSavedLi.setAttribute('id', 'savedLi');
+    container.appendChild(createSavedLi);
+
+    let savedLi = document.getElementById('savedLi');
+
+    //create savelicontentholder
+    let createconholder = document.createElement('div');
+    createconholder.setAttribute('id', 'contholder');
+    savedLi.appendChild(createconholder);
+
+
+    //put selected information in created div
+    let arrayinfo = iteminput;
+    createconholder.innerText = arrayinfo;
+
+
+}
 
 //create save div and buttons (delete, printPDF)
 function displaysave() {
@@ -113,5 +145,6 @@ function createdelbtn() {
 
 module.exports = {
     store,
+    showSavedTrip
 
 };
