@@ -112,6 +112,9 @@ app.get('/', function (req, res) {
     //res.sendFile(path.resolve('src/client/views/index.html'))
 });
 
+app.get("/service-worker.js", (req, res) => {
+    res.sendFile(path.resolve("src/client/service-worker.js"));
+});
 
 
 // async function addData(request, response) {
