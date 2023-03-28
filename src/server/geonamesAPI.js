@@ -1,5 +1,7 @@
 
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
+const fetch = (...args) =>
+    import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 async function geonames(cityname, userkey) {
     const baseurl = 'http://api.geonames.org/searchJSON?';

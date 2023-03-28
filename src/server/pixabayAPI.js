@@ -1,4 +1,6 @@
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
+const fetch = (...args) =>
+    import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 async function pixabay(city, country, key) {
     const baseurl = 'https://pixabay.com/api/';

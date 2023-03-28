@@ -1,5 +1,6 @@
-const fetch = require('node-fetch');
-
+// const fetch = require('node-fetch');
+const fetch = (...args) =>
+    import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 async function weatherbit(latitude, longitude, date, key) {
     const baseUrl = 'https://api.weatherbit.io/v2.0';
