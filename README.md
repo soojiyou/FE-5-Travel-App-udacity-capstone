@@ -1,6 +1,6 @@
 # Udacity Capstone Project: Travel App
 
-## Deployend website
+## Demo Website (Heroku)
 https://fe-travel-app-capstone.herokuapp.com/
 
 ## Overview
