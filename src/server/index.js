@@ -79,11 +79,7 @@ async function addData(request, response) {
 }
 
 
-// app.get("/result", async (request, response) => {
-//     if (projectData) {
-//         response.send(projectData);
-//     }
-// });
+
 
 app.get("/result", async (request, response) => {
 
@@ -91,22 +87,6 @@ app.get("/result", async (request, response) => {
         response.send(tripinfo);
     }
 });
-
-// app.get("/mytrip", async (request, response) => {
-//     // if (tripinfo) {
-//     //     response.send(tripinfo);
-//     // }
-//     window.location.href = "mytrip.html";
-// });
-
-
-
-
-// function listening() {
-//     console.log(`listening on port ${port}`);
-// }
-
-// app.listen(port, listening());
 
 
 app.listen(PORT, () => {
@@ -123,38 +103,3 @@ app.get("/service-worker.js", (req, res) => {
 });
 
 
-// async function addData(request, response) {
-
-//     tripinfo.departure = request.body.departure;
-//     tripinfo.date = request.body.date;
-//     //geonames API
-//     let destinationData = await geonamesAPI.geonames(request.body.destination, process.env.GEONAME_KEY);
-
-//     tripinfo.destination["city"] = destinationData.city;
-//     tripinfo.destination["country_code"] = destinationData.country_code;
-//     tripinfo.destination["latitude"] = destinationData.latitude;
-//     tripinfo.destination["longitude"] = destinationData.longitude;
-//     //weatherbit API
-//     let weatherData = await weatherbitAPI.weatherbit(
-//         destinationData.latitude,
-//         destinationData.longitude,
-//         tripinfo.date,
-//         process.env.WEATHERBIT_KEY
-//     );
-//     tripinfo.weather["temperature"] = weatherData.temperature;
-//     tripinfo.weather["icon"] = weatherData.weather_icon;
-//     tripinfo.weather["description"] = weatherData.weather_description;
-//     //pixabay API
-//     let country = destinationData.country_code;
-//     let imageData = await pixabayAPI.pixabay(request.body.destination, country, process.env.PIXABAY_KEY);
-//     tripinfo.destination["pixabay_webformatURL"] = imageData.webformatURL;
-//     tripinfo.destination["pixabay_pageURL"] = imageData.pageURL;
-//     tripinfo.destination["pixabay_tags"] = imageData.tags;
-//     tripinfo.destination["pixabay_type"] = imageData.type;
-//     //tripinfo["pixabay"] = imageData;
-
-//     console.log(tripinfo);
-
-//     response.send(tripinfo);
-//     console.info('** This request has been processed:\n', request.body, ' **');
-// }

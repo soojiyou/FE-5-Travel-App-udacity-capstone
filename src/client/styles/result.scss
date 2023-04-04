@@ -50,7 +50,7 @@ button:hover {
         grid-template-columns: repeat(2, 1fr);
         border-radius: 0 0 70px 70px;
         background: rgba(147, 179, 247, 0.4);
-        margin: 0.5rem 0;
+        margin: 0.5rem 0 1rem 0;
 
 
     }
@@ -142,11 +142,13 @@ h6 {
     text-decoration: underline #0c2a3d;
 }
 
-#saveli {
-    border-radius: 5px;
-    background-color: rgba(80, 110, 161, 0.373);
+#saveLi,
+#contholder {
+    background-color: rgba(147, 179, 247, 0.4);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin: 0.5rem 0;
 }
-
 
 .title {
     font-size: 1.5rem;
