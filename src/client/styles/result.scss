@@ -16,9 +16,16 @@ button {
     min-height: 2rem;
     width: 25%;
     background: none;
-    transition-duration: 1s;
+    transition: background-color 0.5s;
     border-radius: 5px;
     background-color: rgba(80, 110, 161, 0.373);
+}
+
+
+button:hover {
+    background-color: rgba(147, 179, 247, 0.7);
+    color: #0c2a3d;
+
 }
 
 /* Style for Placeholder Text*/
@@ -63,18 +70,11 @@ button {
 
 #weatherpic img {
     height: 8rem;
-    //width: 10rem;
     margin: 0;
     position: relative;
 
 }
 
-// .box {
-//     padding: 3rem 1rem;
-//     // text-align: center;
-//     display: grid;
-//     grid-template-columns: repeat(2, 1fr);
-// }
 
 #weatherdivs {
     display: grid;
@@ -83,9 +83,7 @@ button {
 }
 
 .cityholder {
-    //padding: 0 2rem;
     display: grid;
-    // grid-template-rows: 100px 100px;
     grid-gap: 10px;
     position: relative;
 
@@ -94,13 +92,10 @@ button {
             height: 20rem;
             width: 100%;
             background-size: cover;
-            // border-radius: 120px 20px 120px 20px;
             border-radius: 70px 70px 0 0;
 
         }
 
-        // height: 14rem;
-        // width: 14rem;
         margin: 0;
 
     }
@@ -147,17 +142,10 @@ h6 {
     text-decoration: underline #0c2a3d;
 }
 
-// .card1,
-// .card2 {
-//     box-shadow: 0 4px 8px 0 #2b256e;
-//     transition: 0.3s;
-//     height: 14rem;
-//     width: 14rem;
-//     position: relative;
-//     left: 80%;
-
-// }
-
+#saveli {
+    border-radius: 5px;
+    background-color: rgba(80, 110, 161, 0.373);
+}
 
 
 .title {
