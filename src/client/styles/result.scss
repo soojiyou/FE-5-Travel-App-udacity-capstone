@@ -5,6 +5,22 @@ button:focus {
     outline: none;
 }
 
+
+button {
+    color: #fffff8;
+    font-size: 20px;
+    font-family: "Cormorant SC", serif;
+    border: 3px solid #3b4a6b;
+    padding: 10px 20px;
+    margin: 5px;
+    min-height: 2rem;
+    width: 25%;
+    background: none;
+    transition-duration: 1s;
+    border-radius: 5px;
+    background-color: rgba(80, 110, 161, 0.373);
+}
+
 /* Style for Placeholder Text*/
 ::placeholder {
     /* Firefox, Chrome, Opera */
@@ -19,6 +35,7 @@ button:focus {
     padding: 2rem;
     border-radius: 20px;
     width: 50rem;
+    margin: 2rem;
 
     .box {
         padding: 3rem 1rem;

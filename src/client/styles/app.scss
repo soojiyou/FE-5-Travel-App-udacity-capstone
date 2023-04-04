@@ -3,15 +3,25 @@
 body {
     background: #fffff8;
     font-family: 'Ibarra Real Nova', serif;
-    background-image: url("https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max");
+    // background-image: url("https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max");
+    // background-size: cover;
+    background-image: url("https://img.freepik.com/premium-photo/travel-vacation-accessories-top-view_771335-24689.jpg");
     background-size: cover;
     font-size: 20px;
+    display: flex;
+    justify-content: center;
+
 
 }
 
 
+
 #app {
-    margin: 2rem 0;
+    // width: 600px;
+    // background-image: url("https://img.freepik.com/premium-photo/items-summer-vacation-camera-passport-money-blue-background-top-view-copy-space_76158-9.jpg?w=360");
+    // background-size: cover;
+    // margin: 2rem 0;
+    margin: 0;
     position: relative;
     display: grid;
     grid-auto-rows: minmax(150px, auto);
@@ -27,7 +37,7 @@ body {
     text-align: center;
     /* font-family: 'Ibarra Real Nova', serif; */
     font-family: 'Cormorant SC', serif;
-    margin: 2rem;
+    // margin: 2rem;
 }
 
 #savedtripspace,
@@ -44,6 +54,7 @@ label {
 }
 
 .content {
+    // min-width: 750px;
     min-width: 750px;
 }
 
