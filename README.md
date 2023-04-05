@@ -76,8 +76,6 @@ The user can:
    <img src="https://user-images.githubusercontent.com/79179847/229978384-0e866f5e-2934-42b5-b5d8-f413983f5dcf.png" alt="Image Description" width="500" >
     
 
-This app allows a user to enter departure, destination and deaprture date for a trip and provides destination location information (city, coutry, weather).
-A user can save trip result and can see when user hit "saved trip" button on the top of app.
 
 ### API
 
@@ -107,7 +105,7 @@ The API:
         Picture of Weather Icon
      
    
-    <img src="https://user-images.githubusercontent.com/79179847/229978925-0de21fde-6dd8-4b40-9dc7-6f63230f1c2e.png" alt="Image Description" width="500" >
+  <img src="https://user-images.githubusercontent.com/79179847/229978925-0de21fde-6dd8-4b40-9dc7-6f63230f1c2e.png" alt="Image Description" width="500" >
      
      
      
