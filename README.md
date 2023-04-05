@@ -26,6 +26,11 @@ Geonames API - for location data
 
 Pixabay API - for image data
 
+#### APIs used:
+
+* [Geonames](https://www.geonames.org/)
+* [Weatherbit](https://www.weatherbit.io/api)
+* [Pixabay](https://pixabay.com/api/docs/)
 
 ### Getting Started:
 Requirements:
@@ -33,23 +38,16 @@ Requirements:
 Available to check in package.json
 
 
-Install Requirements with the following command:
+Install Requirements and run with the following command:
 ``` bash
-`npm install` to install all required packages
+`npm install` (to install all required packages)
 
-`npm run test` to test app
+`npm run test` (to test app)
 
-`npm run build-dev` build dev side
+`npm run build-dev` (build dev side)
 
-`npm run build-prod` build prod side
+`npm run build-prod` (build prod side)
 
-`npm start` start after build
+`npm start` (start after build)
 ```
-
-## APIs used:
-
-* [Geonames](https://www.geonames.org/)
-* [Weatherbit](https://www.weatherbit.io/api)
-* [Pixabay](https://pixabay.com/api/docs/)
-
 
