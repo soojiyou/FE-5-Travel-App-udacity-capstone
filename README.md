@@ -118,8 +118,15 @@ The API:
      
     
 
+## Memo for advanced app in future
 
-       
+1. Make Remove button in search result and Delete button in Saved Trip work synchronize information.
+
+2. Reformat trip information to save.
+
+3. Make user to memo with saved trip for planning travel.
+
+4. Use flight API to search flight for travel. (Like Expedia)
     
 
 
