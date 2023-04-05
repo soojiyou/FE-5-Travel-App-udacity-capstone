@@ -58,16 +58,21 @@ Install Requirements and run with the following command:
 The user can:
     1. type departure, destination, departure date for trip to plan.
     
-    <img src="https://user-images.githubusercontent.com/79179847/229977228-221296e1-596c-46e0-b6a2-0ac39b37f9d7.png" alt="Image Description" width="500" >
+    
+   <img src="https://user-images.githubusercontent.com/79179847/229977228-221296e1-596c-46e0-b6a2-0ac39b37f9d7.png" alt="Image Description" width="500" >
+   
     
     2. save the trip information with Save button, print the trip information with Print PDF button, search new trip by clicking New Search button.
     
-    <img src="https://user-images.githubusercontent.com/79179847/229978020-0ab7921f-c1c2-4799-a4dc-47ecf1e3baa9.png" alt="Image Description" width="500" >
-    <img src="https://user-images.githubusercontent.com/79179847/229978277-703f3db5-ccf1-4d7d-92cf-7d69b06cccb4.png" alt="Image Description" width="500" >
+    
+   <img src="https://user-images.githubusercontent.com/79179847/229978020-0ab7921f-c1c2-4799-a4dc-47ecf1e3baa9.png" alt="Image Description" width="500" >
+   <img src="https://user-images.githubusercontent.com/79179847/229978277-703f3db5-ccf1-4d7d-92cf-7d69b06cccb4.png" alt="Image Description" width="500" >
+   
     
     3. check saved trip information in Saved trip on top of website. This saved information can also be checked after refreshing the web.
-    
-    <img src="https://user-images.githubusercontent.com/79179847/229978384-0e866f5e-2934-42b5-b5d8-f413983f5dcf.png" alt="Image Description" width="500" >
+   
+   
+   <img src="https://user-images.githubusercontent.com/79179847/229978384-0e866f5e-2934-42b5-b5d8-f413983f5dcf.png" alt="Image Description" width="500" >
     
 
 This app allows a user to enter departure, destination and deaprture date for a trip and provides destination location information (city, coutry, weather).
