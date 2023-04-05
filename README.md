@@ -11,13 +11,19 @@ A user can save trip result and can see when user hit "saved trip" button on the
 ### Technologies Used
 
 JavaScript - for the main programming language
+
 HTML/CSS - for the user interface
+
 Webpack - for module bundling
+
 Express - for the web server
+
 Service Workers - for offline functionality
-OpenWeather API - for weather forecast data
+
 Weatherbit API - for future weather data
+
 Geonames API - for location data
+
 Pixabay API - for image data
 
 
