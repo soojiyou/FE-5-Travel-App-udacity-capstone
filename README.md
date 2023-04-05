@@ -56,6 +56,7 @@ Install Requirements and run with the following command:
 ### User
 
 The user can:
+
     1. type departure, destination, departure date for trip to plan.
     
     
@@ -104,11 +105,14 @@ The API:
         Description: Few clouds
         
         Picture of Weather Icon
+     
    
-     <img src="https://user-images.githubusercontent.com/79179847/229978925-0de21fde-6dd8-4b40-9dc7-6f63230f1c2e.png" alt="Image Description" width="500" >
+    <img src="https://user-images.githubusercontent.com/79179847/229978925-0de21fde-6dd8-4b40-9dc7-6f63230f1c2e.png" alt="Image Description" width="500" >
+     
      
      
     3. API 
+    
        Pixabay : return city picture
        
        Geonames :  return latitude and logitude based on city name.
