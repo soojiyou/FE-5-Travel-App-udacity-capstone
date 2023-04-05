@@ -28,6 +28,13 @@ Pixabay API - for image data
 
 
 ### Getting Started:
+Requirements:
+
+Available to check in package.json
+
+
+Install Requirements with the following command:
+``` bash
 `npm install` to install all required packages
 
 `npm run test` to test app
@@ -37,7 +44,7 @@ Pixabay API - for image data
 `npm run build-prod` build prod side
 
 `npm start` start after build
-
+```
 
 ## APIs used:
 
