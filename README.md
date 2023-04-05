@@ -103,11 +103,7 @@ The API:
         Description: Few clouds
         
         Picture of Weather Icon
-     
-   
-  <img src="https://user-images.githubusercontent.com/79179847/229978925-0de21fde-6dd8-4b40-9dc7-6f63230f1c2e.png" alt="Image Description" width="500" >
-     
-     
+      
      
     3. API 
     
@@ -116,6 +112,11 @@ The API:
        Geonames :  return latitude and logitude based on city name.
        
        Weatherbit : return weather information including weather icon. (Available for historical and future 10 days)
+     
+   
+  <img src="https://user-images.githubusercontent.com/79179847/229978925-0de21fde-6dd8-4b40-9dc7-6f63230f1c2e.png" alt="Image Description" width="500" >
+     
+    
 
 
        
